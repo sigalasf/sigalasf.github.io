@@ -1,2 +1,77 @@
-site_name: My Docs
-site_url: https://example.com/
+# --- Global settings --- #
+site_name: sigalasf github page
+site_url: https://sigalasf.github.io/
+copyright: Copyright ©2021 Sigalas Florian
+# --- Theme --- #
+theme:
+  name: material
+  features:
+    - search.highlight
+    - navigation.tabs
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+# --- Search --- #
+plugins:
+  - search
+  - mermaid2:
+        arguments:
+          theme: |
+            ^(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
+# --- js libs --- #
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid/dist/mermaid.js
+# --- Tabs and Mermaid --- #
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+# --- Footer ---#
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/florian-sigalas
+    - icon: fontawesome/brands/github
+      link: https://github.com/sigalasf
+
+
+# --- Nav --- #
+nav:
+  - Home: index.md
+  - Java:
+    - Généralités: 
+      - Qu'est-ce que Java ?: java/global/whatisjava.md
+      - Historique: java/global/history.md
+      - Les types primitifs: java/global/vars.md
+      - Les références: java/global/ref.md
+      - Interfaces ou classes abstraites: java/global/interfaces.md
+      - Avancé:
+        - Les lambdas: java/global/advanced/lambdas.md
+    - AWT:
+      - Qu'est-ce que AWT ?: java/awt/whatisawt.md
+      - Les layouts: java/awt/layouts.md
+      - Composants customisés: java/awt/customcomponents.md
+
+   
+
